@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		337C36712A98057400920DE5 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36702A98057400920DE5 /* Main.swift */; };
-		337C36732A98057400920DE5 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36722A98057400920DE5 /* AppView.swift */; };
+		337C36732A98057400920DE5 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36722A98057400920DE5 /* AppReducer.swift */; };
 		337C36752A98057600920DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 337C36742A98057600920DE5 /* Assets.xcassets */; };
 		337C36792A98057600920DE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 337C36782A98057600920DE5 /* Preview Assets.xcassets */; };
 		337C36832A98057600920DE5 /* KeyboardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36822A98057600920DE5 /* KeyboardsTests.swift */; };
 		337C369D2A9805AF00920DE5 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 337C369C2A9805AF00920DE5 /* ComposableArchitecture */; };
+		337C36A12A980C7600920DE5 /* KeyboardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A02A980C7600920DE5 /* KeyboardList.swift */; };
+		337C36A32A980D4F00920DE5 /* DatabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A22A980D4F00920DE5 /* DatabaseClient.swift */; };
+		337C36A62A980DA500920DE5 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 337C36A52A980DA500920DE5 /* Tagged */; };
+		337C36A82A980FEF00920DE5 /* KeyboardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */; };
+		337C36AA2A9813B300920DE5 /* DatabaseClient+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A92A9813B300920DE5 /* DatabaseClient+Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +33,16 @@
 /* Begin PBXFileReference section */
 		337C366D2A98057400920DE5 /* Keyboards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyboards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		337C36702A98057400920DE5 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
-		337C36722A98057400920DE5 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		337C36722A98057400920DE5 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		337C36742A98057600920DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		337C36762A98057600920DE5 /* Keyboards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Keyboards.entitlements; sourceTree = "<group>"; };
 		337C36782A98057600920DE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		337C367E2A98057600920DE5 /* KeyboardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		337C36822A98057600920DE5 /* KeyboardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardsTests.swift; sourceTree = "<group>"; };
+		337C36A02A980C7600920DE5 /* KeyboardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardList.swift; sourceTree = "<group>"; };
+		337C36A22A980D4F00920DE5 /* DatabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClient.swift; sourceTree = "<group>"; };
+		337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDetails.swift; sourceTree = "<group>"; };
+		337C36A92A9813B300920DE5 /* DatabaseClient+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseClient+Models.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				337C36A62A980DA500920DE5 /* Tagged in Frameworks */,
 				337C369D2A9805AF00920DE5 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,11 +86,15 @@
 		337C366F2A98057400920DE5 /* Keyboards */ = {
 			isa = PBXGroup;
 			children = (
-				337C36702A98057400920DE5 /* Main.swift */,
-				337C36722A98057400920DE5 /* AppView.swift */,
+				337C36722A98057400920DE5 /* AppReducer.swift */,
 				337C36742A98057600920DE5 /* Assets.xcassets */,
+				337C36A22A980D4F00920DE5 /* DatabaseClient.swift */,
+				337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */,
+				337C36A02A980C7600920DE5 /* KeyboardList.swift */,
 				337C36762A98057600920DE5 /* Keyboards.entitlements */,
+				337C36702A98057400920DE5 /* Main.swift */,
 				337C36772A98057600920DE5 /* Preview Content */,
+				337C36A92A9813B300920DE5 /* DatabaseClient+Models.swift */,
 			);
 			path = Keyboards;
 			sourceTree = "<group>";
@@ -119,6 +133,7 @@
 			name = Keyboards;
 			packageProductDependencies = (
 				337C369C2A9805AF00920DE5 /* ComposableArchitecture */,
+				337C36A52A980DA500920DE5 /* Tagged */,
 			);
 			productName = Keyboards;
 			productReference = 337C366D2A98057400920DE5 /* Keyboards.app */;
@@ -172,6 +187,7 @@
 			mainGroup = 337C36642A98057400920DE5;
 			packageReferences = (
 				337C369B2A9805AF00920DE5 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				337C36A42A980DA500920DE5 /* XCRemoteSwiftPackageReference "swift-tagged" */,
 			);
 			productRefGroup = 337C366E2A98057400920DE5 /* Products */;
 			projectDirPath = "";
@@ -207,8 +223,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				337C36732A98057400920DE5 /* AppView.swift in Sources */,
+				337C36732A98057400920DE5 /* AppReducer.swift in Sources */,
+				337C36AA2A9813B300920DE5 /* DatabaseClient+Models.swift in Sources */,
+				337C36A12A980C7600920DE5 /* KeyboardList.swift in Sources */,
 				337C36712A98057400920DE5 /* Main.swift in Sources */,
+				337C36A32A980D4F00920DE5 /* DatabaseClient.swift in Sources */,
+				337C36A82A980FEF00920DE5 /* KeyboardDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +523,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		337C36A42A980DA500920DE5 /* XCRemoteSwiftPackageReference "swift-tagged" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-tagged";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -510,6 +538,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 337C369B2A9805AF00920DE5 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		337C36A52A980DA500920DE5 /* Tagged */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 337C36A42A980DA500920DE5 /* XCRemoteSwiftPackageReference "swift-tagged" */;
+			productName = Tagged;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
