@@ -3,7 +3,7 @@ import ComposableArchitecture
 
 struct KeyboardDetails: Reducer {
   struct State: Equatable {
-    let keyboard: DatabaseClient.Keyboard
+    let keyboard: Database.Keyboard
   }
   
   enum Action: Equatable {

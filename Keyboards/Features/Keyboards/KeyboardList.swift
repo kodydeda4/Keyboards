@@ -3,16 +3,16 @@ import ComposableArchitecture
 
 struct KeyboardList: Reducer {
   struct State: Equatable {
-    let manufacturer: DatabaseClient.Manufacturer
-    var keyboards = IdentifiedArrayOf<DatabaseClient.Keyboard>()
-    @BindingState var selection = Set<DatabaseClient.Keyboard.ID>()
+    let manufacturer: Database.Manufacturer
+    var keyboards = IdentifiedArrayOf<Database.Keyboard>()
+    @BindingState var selection = Set<Database.Keyboard.ID>()
     @PresentationState var details: KeyboardDetails.State?
   }
   
   enum Action: BindableAction, Equatable {
     case task
-    case setKeyboards([DatabaseClient.Keyboard])
-    case setSelection(Set<DatabaseClient.Keyboard.ID>)
+    case setKeyboards([Database.Keyboard])
+    case setSelection(Set<Database.Keyboard.ID>)
     case binding(BindingAction<State>)
     case details(PresentationAction<KeyboardDetails.Action>)
   }
@@ -83,7 +83,7 @@ struct KeyboardsListView: View {
     }
   }
   
-  private func keyboardView(keyboard: DatabaseClient.Keyboard) -> some View {
+  private func keyboardView(keyboard: Database.Keyboard) -> some View {
     Text("\(keyboard.name )")
   }
 }

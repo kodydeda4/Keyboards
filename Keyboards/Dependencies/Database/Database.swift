@@ -3,18 +3,18 @@ import Dependencies
 import Tagged
 import IdentifiedCollections
 
-struct DatabaseClient: DependencyKey {
+struct Database: DependencyKey {
   var keyboards: @Sendable (_ with: Manufacturer.ID) async -> AsyncStream<[Keyboard]>
 }
 
 extension DependencyValues {
-  var database: DatabaseClient {
-    get { self[DatabaseClient.self] }
-    set { self[DatabaseClient.self] = newValue }
+  var database: Database {
+    get { self[Database.self] }
+    set { self[Database.self] = newValue }
   }
 }
 
-extension DatabaseClient {
+extension Database {
   static var liveValue: Self {
     final actor ActorState {
       @Published var keyboards = IdentifiedArrayOf(uniqueElements: Keyboard.defaults)
