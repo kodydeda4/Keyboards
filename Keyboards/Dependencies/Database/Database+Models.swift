@@ -14,6 +14,7 @@ extension Database {
     let name: String
     let description: String
     let imageURL: URL
+    var isFavorite = false
     typealias ID = Tagged<Self, UUID>
   }
 }

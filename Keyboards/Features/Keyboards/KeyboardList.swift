@@ -55,6 +55,12 @@ struct KeyboardList: Reducer {
   }
 }
 
+private extension KeyboardList.State {
+  var favorites: IdentifiedArrayOf<Database.Keyboard> {
+    keyboards.filter(\.isFavorite)
+  }
+}
+
 // MARK: - SwiftUI
 
 struct KeyboardsListView: View {
@@ -66,17 +72,29 @@ struct KeyboardsListView: View {
         get: { $0.selection },
         send: { .setSelection($0) }
       )) {
-        ForEach(viewStore.keyboards) { keyboard in
-          NavigationLink(value: keyboard) {
-            keyboardView(keyboard: keyboard)
+        if !viewStore.favorites.isEmpty {
+          Section("Favorites") {
+            ForEach(viewStore.favorites) { keyboard in
+              NavigationLink(value: keyboard) {
+                keyboardView(keyboard: keyboard)
+              }
+              .tag(keyboard.id)
+            }
           }
-          .tag(keyboard.id)
+        }
+        Section("Keyboards") {
+          ForEach(viewStore.keyboards.filter({ !$0.isFavorite })) { keyboard in
+            NavigationLink(value: keyboard) {
+              keyboardView(keyboard: keyboard)
+            }
+            .tag(keyboard.id)
+          }
         }
       }
       .navigationTitle(viewStore.manufacturer.name)
       .task { await viewStore.send(.task).finish() }
       .toolbar {
-        Button("Content") {
+        Button("Edit") {
           
         }
       }

@@ -3,17 +3,20 @@ import ComposableArchitecture
 
 struct KeyboardDetails: Reducer {
   struct State: Equatable {
-    let keyboard: Database.Keyboard
+    var keyboard: Database.Keyboard
   }
   
   enum Action: Equatable {
-    //...
+    case toggleIsFavorite
   }
   
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
-        
+      
+      case .toggleIsFavorite:
+        state.keyboard.isFavorite.toggle()
+        return .none
       }
     }
   }
@@ -53,15 +56,16 @@ struct KeyboardDetailsView: View {
       .navigationTitle(viewStore.state.name)
       .listStyle(.plain)
       .toolbar {
-        Button("Details") {
-          
+        Button {
+          viewStore.send(.toggleIsFavorite)
+        } label: {
+          Image(systemName: !viewStore.isFavorite ? "heart" : "heart.fill")
+            .foregroundColor(.pink)
         }
       }
     }
   }
 }
-
-
 
 // MARK: - SwiftUI Previews
 
