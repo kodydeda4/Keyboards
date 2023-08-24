@@ -75,6 +75,11 @@ struct KeyboardsListView: View {
       }
       .navigationTitle(viewStore.manufacturer.name)
       .task { await viewStore.send(.task).finish() }
+      .toolbar {
+        Button("Content") {
+          
+        }
+      }
     }
   }
   
@@ -89,7 +94,14 @@ struct KeyboardsListDetailView: View {
   var body: some View {
     IfLetStore(
       store.scope(state: \.$details, action: KeyboardList.Action.details),
-      then: KeyboardDetailsView.init(store:)
+      then: KeyboardDetailsView.init(store:),
+      else: {
+        EmptyView().toolbar {
+          Button("Empty Detail") {
+            //...
+          }
+        }
+      }
     )
   }
 }

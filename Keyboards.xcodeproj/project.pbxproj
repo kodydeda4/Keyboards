@@ -86,15 +86,10 @@
 		337C366F2A98057400920DE5 /* Keyboards */ = {
 			isa = PBXGroup;
 			children = (
-				337C36722A98057400920DE5 /* AppReducer.swift */,
-				337C36742A98057600920DE5 /* Assets.xcassets */,
-				337C36A22A980D4F00920DE5 /* DatabaseClient.swift */,
-				337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */,
-				337C36A02A980C7600920DE5 /* KeyboardList.swift */,
-				337C36762A98057600920DE5 /* Keyboards.entitlements */,
-				337C36702A98057400920DE5 /* Main.swift */,
+				337C36AC2A9815EA00920DE5 /* Dependencies */,
+				337C36AB2A9815E600920DE5 /* Features */,
 				337C36772A98057600920DE5 /* Preview Content */,
-				337C36A92A9813B300920DE5 /* DatabaseClient+Models.swift */,
+				337C36AD2A9815F700920DE5 /* Resources */,
 			);
 			path = Keyboards;
 			sourceTree = "<group>";
@@ -113,6 +108,59 @@
 				337C36822A98057600920DE5 /* KeyboardsTests.swift */,
 			);
 			path = KeyboardsTests;
+			sourceTree = "<group>";
+		};
+		337C36AB2A9815E600920DE5 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				337C36AF2A98167000920DE5 /* AppReducer */,
+				337C36B02A98167600920DE5 /* Keyboards */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		337C36AC2A9815EA00920DE5 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				337C36AE2A98160800920DE5 /* DatabaseClient */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		337C36AD2A9815F700920DE5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				337C36742A98057600920DE5 /* Assets.xcassets */,
+				337C36762A98057600920DE5 /* Keyboards.entitlements */,
+				337C36702A98057400920DE5 /* Main.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		337C36AE2A98160800920DE5 /* DatabaseClient */ = {
+			isa = PBXGroup;
+			children = (
+				337C36A92A9813B300920DE5 /* DatabaseClient+Models.swift */,
+				337C36A22A980D4F00920DE5 /* DatabaseClient.swift */,
+			);
+			path = DatabaseClient;
+			sourceTree = "<group>";
+		};
+		337C36AF2A98167000920DE5 /* AppReducer */ = {
+			isa = PBXGroup;
+			children = (
+				337C36722A98057400920DE5 /* AppReducer.swift */,
+			);
+			path = AppReducer;
+			sourceTree = "<group>";
+		};
+		337C36B02A98167600920DE5 /* Keyboards */ = {
+			isa = PBXGroup;
+			children = (
+				337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */,
+				337C36A02A980C7600920DE5 /* KeyboardList.swift */,
+			);
+			path = Keyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,7 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Keyboards/Keyboards.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Keyboards/Resources/Keyboards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyboards/Preview Content\"";
@@ -403,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Keyboards/Keyboards.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Keyboards/Resources/Keyboards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyboards/Preview Content\"";

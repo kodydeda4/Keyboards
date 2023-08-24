@@ -75,6 +75,11 @@ struct AppView: View {
         }
       }
       .navigationTitle("Keyboards")
+      .toolbar {
+        Button("Sidebar") {
+          
+        }
+      }
     }
   }
   
@@ -97,7 +102,11 @@ struct AppView: View {
           action: AppReducer.Action.dell
         ))
       case .none:
-        EmptyView()
+        EmptyView().toolbar {
+          Button("Empty") {
+            //...
+          }
+        }
       }
     }
   }
@@ -121,7 +130,11 @@ struct AppView: View {
           action: AppReducer.Action.dell
         ))
       case .none:
-        EmptyView()
+        EmptyView().toolbar {
+          Button("Empty") {
+            //...
+          }
+        }
       }
     }
   }
