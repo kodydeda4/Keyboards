@@ -59,6 +59,9 @@ private extension KeyboardList.State {
   var favorites: IdentifiedArrayOf<Database.Keyboard> {
     keyboards.filter(\.isFavorite)
   }
+  var nonFavorites: IdentifiedArrayOf<Database.Keyboard> {
+    keyboards.filter { !$0.isFavorite }
+  }
 }
 
 // MARK: - SwiftUI
@@ -82,12 +85,14 @@ struct KeyboardsListView: View {
             }
           }
         }
-        Section("Keyboards") {
-          ForEach(viewStore.keyboards.filter({ !$0.isFavorite })) { keyboard in
-            NavigationLink(value: keyboard) {
-              keyboardView(keyboard: keyboard)
+        if !viewStore.nonFavorites.isEmpty {
+          Section("Keyboards") {
+            ForEach(viewStore.keyboards.filter({ !$0.isFavorite })) { keyboard in
+              NavigationLink(value: keyboard) {
+                keyboardView(keyboard: keyboard)
+              }
+              .tag(keyboard.id)
             }
-            .tag(keyboard.id)
           }
         }
       }

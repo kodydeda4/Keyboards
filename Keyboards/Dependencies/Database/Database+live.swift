@@ -5,6 +5,10 @@ extension Database {
   static var live: Self {
     final actor ActorState {
       @Published var keyboards = IdentifiedArrayOf(uniqueElements: Keyboard.defaults)
+      
+      func update(keyboard: Keyboard) {
+        self.keyboards[id: keyboard.id] = keyboard
+      }
     }
     
     let actor = ActorState()
@@ -21,7 +25,8 @@ extension Database {
           }
           continuation.onTermination = { _ in task.cancel() }
         }
-      }
+      },
+      updateKeyboard: { await actor.update(keyboard: $0) }
     )
   }
 }

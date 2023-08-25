@@ -8,14 +8,34 @@ struct KeyboardDetails: Reducer {
   
   enum Action: Equatable {
     case toggleIsFavorite
+    case updateDatabase(Database.Keyboard)
+    case updateDatabaseResponse(TaskResult<Database.Keyboard>)
   }
+  
+  @Dependency(\.database) var database
   
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
       
       case .toggleIsFavorite:
-        state.keyboard.isFavorite.toggle()
+        var copy = state.keyboard
+        copy.isFavorite.toggle()
+        return .send(.updateDatabase(copy))
+        
+      case let .updateDatabase(value):
+        return .run { send in
+          await send(.updateDatabaseResponse(TaskResult {
+            try await database.updateKeyboard(value)
+            return value
+          }))
+        }
+        
+      case let .updateDatabaseResponse(.success(value)):
+        state.keyboard = value
+        return .none
+        
+      case .updateDatabaseResponse(.failure):
         return .none
       }
     }
