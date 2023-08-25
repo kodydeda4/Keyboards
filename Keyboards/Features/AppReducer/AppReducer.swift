@@ -8,13 +8,16 @@ struct AppReducer: Reducer {
     var dell = KeyboardList.State(manufacturer: .dell)
     @BindingState var navigationSplitViewVisibility = NavigationSplitViewVisibility.all
     @BindingState var destinationTag: DestinationTag? = .apple
+    @PresentationState var destination: Destination.State?
   }
   
   enum Action: BindableAction, Equatable {
+    case navigateToAppInfo
     case apple(KeyboardList.Action)
     case ibm(KeyboardList.Action)
     case dell(KeyboardList.Action)
     case binding(BindingAction<State>)
+    case destination(PresentationAction<Destination.Action>)
   }
   
   var body: some ReducerOf<Self> {
@@ -27,6 +30,35 @@ struct AppReducer: Reducer {
     }
     Scope(state: \.dell, action: /Action.dell) {
       KeyboardList()
+    }
+    Reduce { state, action in
+      switch action {
+      
+      case .navigateToAppInfo:
+        state.destination = .appInfo()
+        return .none
+        
+      default:
+        return .none
+        
+      }
+    }
+    .ifLet(\.$destination, action: /Action.destination) {
+      Destination()
+    }
+  }
+  
+  struct Destination: Reducer {
+    enum State: Equatable {
+      case appInfo(AppInfo.State = .init())
+    }
+    enum Action: Equatable {
+      case appInfo(AppInfo.Action)
+    }
+    var body: some ReducerOf<Self> {
+      Scope(state: /State.appInfo, action: /Action.appInfo) {
+        AppInfo()
+      }
     }
   }
 }
@@ -75,9 +107,15 @@ struct AppView: View {
         }
       }
       .navigationTitle("Keyboards")
+      .sheet(
+        store: store.scope(state: \.$destination, action: AppReducer.Action.destination),
+        state: /AppReducer.Destination.State.appInfo,
+        action: AppReducer.Destination.Action.appInfo,
+        content: AppInfoSheet.init(store:)
+      )
       .toolbar {
-        Button("Sidebar") {
-          
+        Button(action: { viewStore.send(.navigateToAppInfo) }) {
+          Image(systemName: "info.circle")
         }
       }
     }

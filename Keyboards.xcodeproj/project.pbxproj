@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		332DE1FB2A996AF1006744E3 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332DE1FA2A996AF1006744E3 /* AppInfo.swift */; };
 		337C36712A98057400920DE5 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36702A98057400920DE5 /* Main.swift */; };
 		337C36732A98057400920DE5 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36722A98057400920DE5 /* AppReducer.swift */; };
 		337C36752A98057600920DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 337C36742A98057600920DE5 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		332DE1FA2A996AF1006744E3 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		337C366D2A98057400920DE5 /* Keyboards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyboards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		337C36702A98057400920DE5 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		337C36722A98057400920DE5 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		332DE1F92A996AE9006744E3 /* AppInfo */ = {
+			isa = PBXGroup;
+			children = (
+				332DE1FA2A996AF1006744E3 /* AppInfo.swift */,
+			);
+			path = AppInfo;
+			sourceTree = "<group>";
+		};
 		337C36642A98057400920DE5 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		337C36AB2A9815E600920DE5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				332DE1F92A996AE9006744E3 /* AppInfo */,
 				337C36AF2A98167000920DE5 /* AppReducer */,
 				337C36B02A98167600920DE5 /* Keyboards */,
 			);
@@ -279,6 +290,7 @@
 				337C36A12A980C7600920DE5 /* KeyboardList.swift in Sources */,
 				337C36712A98057400920DE5 /* Main.swift in Sources */,
 				337C36A32A980D4F00920DE5 /* Database.swift in Sources */,
+				332DE1FB2A996AF1006744E3 /* AppInfo.swift in Sources */,
 				33DCF0902A98252800D34440 /* Database+live.swift in Sources */,
 				337C36A82A980FEF00920DE5 /* KeyboardDetails.swift in Sources */,
 			);
