@@ -98,6 +98,7 @@ struct KeyboardsListView: View {
       }
       .navigationTitle(viewStore.manufacturer.name)
       .task { await viewStore.send(.task).finish() }
+      .animation(.default, value: viewStore.keyboards)
       .toolbar {
         Button("Edit") {
           
