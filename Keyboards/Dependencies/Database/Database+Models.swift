@@ -26,6 +26,8 @@ extension Database.Manufacturer {
   static var defaults: [Self] = [.apple, .ibm, .dell]
 }
 
+// Info
+// https://en.wikipedia.org/wiki/Apple_keyboards
 extension Database.Keyboard {
   
 //  static let ibmModelM = Self(id: .init(), manufacturerID: DatabaseClient.Manufacturer.ibm.id, name: "Model M")
