@@ -1,6 +1,6 @@
 # Keyboards
 
-<img width="500" alt="Screenshot 2023-08-26 at 1 00 30 PM" src="https://github.com/kodydeda4/Keyboards/assets/45678211/f433221c-de0c-4453-bb30-c814c9ac2e0e">
+<img width="500" alt="Screenshot 2023-08-26 at 1 07 24 PM" src="https://github.com/kodydeda4/Keyboards/assets/45678211/aad649c4-f6cd-41d6-bd89-39af5b594d7b">
 
 ## About
 
