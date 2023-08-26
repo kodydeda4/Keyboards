@@ -18,7 +18,6 @@
 		337C36A62A980DA500920DE5 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 337C36A52A980DA500920DE5 /* Tagged */; };
 		337C36A82A980FEF00920DE5 /* KeyboardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */; };
 		337C36AA2A9813B300920DE5 /* Database+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A92A9813B300920DE5 /* Database+Models.swift */; };
-		33DCF0902A98252800D34440 /* Database+live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DCF08F2A98252800D34440 /* Database+live.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +43,6 @@
 		337C36A22A980D4F00920DE5 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDetails.swift; sourceTree = "<group>"; };
 		337C36A92A9813B300920DE5 /* Database+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database+Models.swift"; sourceTree = "<group>"; };
-		33DCF08F2A98252800D34440 /* Database+live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database+live.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +88,6 @@
 			children = (
 				337C36AC2A9815EA00920DE5 /* Dependencies */,
 				337C36AB2A9815E600920DE5 /* Features */,
-				337C36772A98057600920DE5 /* Preview Content */,
 				337C36AD2A9815F700920DE5 /* Resources */,
 			);
 			path = Keyboards;
@@ -133,6 +130,7 @@
 		337C36AD2A9815F700920DE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				337C36772A98057600920DE5 /* Preview Content */,
 				337C36742A98057600920DE5 /* Assets.xcassets */,
 				337C36762A98057600920DE5 /* Keyboards.entitlements */,
 				337C36702A98057400920DE5 /* Main.swift */,
@@ -143,9 +141,8 @@
 		337C36AE2A98160800920DE5 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				337C36A92A9813B300920DE5 /* Database+Models.swift */,
 				337C36A22A980D4F00920DE5 /* Database.swift */,
-				33DCF08F2A98252800D34440 /* Database+live.swift */,
+				337C36A92A9813B300920DE5 /* Database+Models.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -263,7 +260,6 @@
 				337C36A12A980C7600920DE5 /* KeyboardList.swift in Sources */,
 				337C36712A98057400920DE5 /* Main.swift in Sources */,
 				337C36A32A980D4F00920DE5 /* Database.swift in Sources */,
-				33DCF0902A98252800D34440 /* Database+live.swift in Sources */,
 				337C36A82A980FEF00920DE5 /* KeyboardDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +400,7 @@
 				CODE_SIGN_ENTITLEMENTS = Keyboards/Resources/Keyboards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Keyboards/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Keyboards/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = ME637H7ZM9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -442,7 +438,7 @@
 				CODE_SIGN_ENTITLEMENTS = Keyboards/Resources/Keyboards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Keyboards/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Keyboards/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = ME637H7ZM9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

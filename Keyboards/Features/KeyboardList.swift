@@ -36,8 +36,7 @@ struct KeyboardList: Reducer {
         state.details = value.flatMap({ state.keyboards[id: $0] }).flatMap({ .init(keyboard: $0) })
         return .none
         
-        
-      default:
+      case .details:
         return .none
         
       }
