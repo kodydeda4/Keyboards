@@ -54,6 +54,7 @@ struct KeyboardList: Reducer {
     .ifLet(\.$details, action: /Action.details) {
       KeyboardDetails()
     }
+    ._printChanges()
   }
 }
 
@@ -100,6 +101,11 @@ struct KeyboardsListView: View {
       .navigationTitle(viewStore.manufacturer.name)
       .task { await viewStore.send(.task).finish() }
       .animation(.default, value: viewStore.keyboards)
+      .toolbar {
+        Button("Edit") {
+          
+        }
+      }
     }
   }
   
