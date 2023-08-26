@@ -3,13 +3,13 @@ import ComposableArchitecture
 
 struct KeyboardDetails: Reducer {
   struct State: Equatable {
-    var keyboard: Database.Keyboard
+    var keyboard: DatabaseClient.Keyboard
   }
   
   enum Action: Equatable {
     case toggleIsFavorite
-    case updateDatabase(Database.Keyboard)
-    case updateDatabaseResponse(TaskResult<Database.Keyboard>)
+    case updateDatabase(DatabaseClient.Keyboard)
+    case updateDatabaseResponse(TaskResult<DatabaseClient.Keyboard>)
   }
   
   @Dependency(\.database) var database

@@ -14,10 +14,9 @@
 		337C36832A98057600920DE5 /* KeyboardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36822A98057600920DE5 /* KeyboardsTests.swift */; };
 		337C369D2A9805AF00920DE5 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 337C369C2A9805AF00920DE5 /* ComposableArchitecture */; };
 		337C36A12A980C7600920DE5 /* KeyboardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A02A980C7600920DE5 /* KeyboardList.swift */; };
-		337C36A32A980D4F00920DE5 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A22A980D4F00920DE5 /* Database.swift */; };
+		337C36A32A980D4F00920DE5 /* DatabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A22A980D4F00920DE5 /* DatabaseClient.swift */; };
 		337C36A62A980DA500920DE5 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 337C36A52A980DA500920DE5 /* Tagged */; };
 		337C36A82A980FEF00920DE5 /* KeyboardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */; };
-		337C36AA2A9813B300920DE5 /* Database+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C36A92A9813B300920DE5 /* Database+Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +39,8 @@
 		337C367E2A98057600920DE5 /* KeyboardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		337C36822A98057600920DE5 /* KeyboardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardsTests.swift; sourceTree = "<group>"; };
 		337C36A02A980C7600920DE5 /* KeyboardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardList.swift; sourceTree = "<group>"; };
-		337C36A22A980D4F00920DE5 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		337C36A22A980D4F00920DE5 /* DatabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClient.swift; sourceTree = "<group>"; };
 		337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDetails.swift; sourceTree = "<group>"; };
-		337C36A92A9813B300920DE5 /* Database+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database+Models.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +120,7 @@
 		337C36AC2A9815EA00920DE5 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				337C36AE2A98160800920DE5 /* Database */,
+				337C36A22A980D4F00920DE5 /* DatabaseClient.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -136,15 +134,6 @@
 				337C36702A98057400920DE5 /* Main.swift */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		337C36AE2A98160800920DE5 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				337C36A22A980D4F00920DE5 /* Database.swift */,
-				337C36A92A9813B300920DE5 /* Database+Models.swift */,
-			);
-			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,10 +245,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				337C36732A98057400920DE5 /* AppReducer.swift in Sources */,
-				337C36AA2A9813B300920DE5 /* Database+Models.swift in Sources */,
 				337C36A12A980C7600920DE5 /* KeyboardList.swift in Sources */,
 				337C36712A98057400920DE5 /* Main.swift in Sources */,
-				337C36A32A980D4F00920DE5 /* Database.swift in Sources */,
+				337C36A32A980D4F00920DE5 /* DatabaseClient.swift in Sources */,
 				337C36A82A980FEF00920DE5 /* KeyboardDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

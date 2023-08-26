@@ -3,15 +3,15 @@ import ComposableArchitecture
 
 struct KeyboardList: Reducer {
   struct State: Equatable {
-    let manufacturer: Database.Manufacturer
-    var keyboards = IdentifiedArrayOf<Database.Keyboard>()
+    let manufacturer: DatabaseClient.Manufacturer
+    var keyboards = IdentifiedArrayOf<DatabaseClient.Keyboard>()
     @PresentationState var details: KeyboardDetails.State?
   }
   
   enum Action: Equatable {
     case task
-    case setKeyboards([Database.Keyboard])
-    case setSelection(Database.Keyboard.ID?)
+    case setKeyboards([DatabaseClient.Keyboard])
+    case setSelection(DatabaseClient.Keyboard.ID?)
     case details(PresentationAction<KeyboardDetails.Action>)
   }
   
@@ -46,10 +46,10 @@ struct KeyboardList: Reducer {
 }
 
 private extension KeyboardList.State {
-  var favorites: IdentifiedArrayOf<Database.Keyboard> {
+  var favorites: IdentifiedArrayOf<DatabaseClient.Keyboard> {
     keyboards.filter(\.isFavorite)
   }
-  var nonFavorites: IdentifiedArrayOf<Database.Keyboard> {
+  var nonFavorites: IdentifiedArrayOf<DatabaseClient.Keyboard> {
     keyboards.filter { !$0.isFavorite }
   }
 }
