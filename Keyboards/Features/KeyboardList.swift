@@ -46,6 +46,9 @@ struct KeyboardList: Reducer {
 }
 
 private extension KeyboardList.State {
+  var selection: DatabaseClient.Keyboard.ID? {
+    details?.keyboard.id
+  }
   var favorites: IdentifiedArrayOf<DatabaseClient.Keyboard> {
     keyboards.filter(\.isFavorite)
   }
@@ -61,7 +64,7 @@ struct KeyboardsListView: View {
   
   var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-      List(selection: viewStore.binding(get: { $0.details?.keyboard.id }, send: { .setSelection($0) } )) {
+      List(selection: viewStore.binding(get: \.selection, send: { .setSelection($0) } )) {
         if !viewStore.favorites.isEmpty {
           Section("Favorites") {
             ForEach(viewStore.favorites) { keyboard in
