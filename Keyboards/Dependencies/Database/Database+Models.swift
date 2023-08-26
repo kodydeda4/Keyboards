@@ -26,14 +26,9 @@ extension Database.Manufacturer {
   static var defaults: [Self] = [.apple, .ibm, .dell]
 }
 
-// Info
-// https://en.wikipedia.org/wiki/Apple_keyboards
 extension Database.Keyboard {
-  
-//  static let ibmModelM = Self(id: .init(), manufacturerID: DatabaseClient.Manufacturer.ibm.id, name: "Model M")
-//  static let dellFoo = Self(id: .init(), manufacturerID: DatabaseClient.Manufacturer.dell.id, name: "Dell Foo")
-  
-  static let apple: [Self] = [
+  static let defaults: [Self] = [
+    // MARK: - Apple
     Self(
       id: .init(),
       manufacturerID: Database.Manufacturer.apple.id,
@@ -52,10 +47,23 @@ extension Database.Keyboard {
       id: .init(),
       manufacturerID: Database.Manufacturer.apple.id,
       name: "Macintosh Keyboard (M0110)",
-      description: "Introduced and included with the original Macintosh in 1984, it debuted with neither arrow keys to control the cursor nor an integrated numeric keypad. It used a telephone cord-style RJ-11 connector to the case (also used with the Amstrad PCW series of computers). The keyboard pinouts are \"crossed\" so it isn't possible to use a standard telephone cord as a replacement; doing so will result in damage to the keyboard or the computer.[12] The keyboard also introduced a unique command key similar to the \"open\" Apple Key on the Lisa.",
+      description: "Introduced and included with the original Macintosh in 1984, it debuted with neither arrow keys to control the cursor nor an integrated numeric keypad. It used a telephone cord-style RJ-11 connector to the case (also used with the Amstrad PCW series of computers). The keyboard pinouts are \"crossed\" so it isn't possible to use a standard telephone cord as a replacement; doing so will result in damage to the keyboard or the computer. The keyboard also introduced a unique command key similar to the \"open\" Apple Key on the Lisa.",
       imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Apple_Macintosh_Plus_Keyboard.jpg/440px-Apple_Macintosh_Plus_Keyboard.jpg")!
-    )
+    ),
+    // MARK: - IBM
+    Self(
+      id: .init(),
+      manufacturerID: Database.Manufacturer.ibm.id,
+      name: "Model M",
+      description: "The Model M keyboard was designed to be less expensive to produce than the Model F keyboard it replaced. Principal design work was done at IBM in 1983–1984, drawing on a wide range of user feedback, ergonomic studies, and examination of competing products. Its key layout, significantly different from the Model F's, owed much (including notably the inverted-T arrangement of its arrow keys) to the LK-201 keyboard shipped with the VT220 serial terminal.",
+      imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/4/48/IBM_Model_M.png")!
+    ),
+    Self(
+      id: .init(),
+      manufacturerID: Database.Manufacturer.ibm.id,
+      name: "Model F",
+      description: "The Model F was a series of computer keyboards produced mainly from 1981–1985 and in reduced volume until 1994 by IBM and later Lexmark. Its mechanical-key design consisted of a buckling spring over a capacitive PCB, similar to the later Model M keyboard that used a membrane in place of the PCB.",
+      imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/IBM_Model_F_XT.png/280px-IBM_Model_F_XT.png")!
+    ),
   ]
-  
-  static let defaults: [Self] = [apple].flatMap({ $0 })
 }

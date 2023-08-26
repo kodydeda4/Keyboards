@@ -32,10 +32,12 @@ struct KeyboardList: Reducer {
         }
         
       case let .setSelection(value):
+        state.selection = value
         if let selection = value.first.flatMap({ state.keyboards[id: $0] }) {
           state.details = .init(keyboard: selection)
           state.selection = Set([selection.id])
         } else {
+          state.details = nil
           state.selection = Set()
         }
         return .none
@@ -52,6 +54,7 @@ struct KeyboardList: Reducer {
     .ifLet(\.$details, action: /Action.details) {
       KeyboardDetails()
     }
+    ._printChanges()
   }
 }
 
@@ -88,10 +91,9 @@ struct KeyboardsListView: View {
         if !viewStore.nonFavorites.isEmpty {
           Section("Keyboards") {
             ForEach(viewStore.keyboards.filter({ !$0.isFavorite })) { keyboard in
-              NavigationLink(value: keyboard) {
+              NavigationLink(value: keyboard.id) {
                 keyboardView(keyboard: keyboard)
               }
-              .tag(keyboard.id)
             }
           }
         }
@@ -118,14 +120,7 @@ struct KeyboardsListDetailView: View {
   var body: some View {
     IfLetStore(
       store.scope(state: \.$details, action: KeyboardList.Action.details),
-      then: KeyboardDetailsView.init(store:),
-      else: {
-        EmptyView().toolbar {
-          Button("Empty Detail") {
-            //...
-          }
-        }
-      }
+      then: KeyboardDetailsView.init(store:)
     )
   }
 }

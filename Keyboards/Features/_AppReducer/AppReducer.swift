@@ -33,7 +33,7 @@ struct AppReducer: Reducer {
     }
     Reduce { state, action in
       switch action {
-      
+        
       case .navigateToAppInfo:
         state.destination = .appInfo()
         return .none
@@ -101,7 +101,7 @@ struct AppView: View {
         send: { .binding(.set(\.$destinationTag, $0)) }
       )) {
         ForEach(AppReducer.State.DestinationTag.allCases) { value in
-          NavigationLink(value: value) {
+          NavigationLink(value: value.id) {
             Text(value.description)
           }
         }
@@ -140,11 +140,7 @@ struct AppView: View {
           action: AppReducer.Action.dell
         ))
       case .none:
-        EmptyView().toolbar {
-          Button("Empty") {
-            //...
-          }
-        }
+        EmptyView()
       }
     }
   }
@@ -168,21 +164,17 @@ struct AppView: View {
           action: AppReducer.Action.dell
         ))
       case .none:
-        EmptyView().toolbar {
-          Button("Empty") {
-            //...
-          }
-        }
+        EmptyView()
       }
     }
   }
 }
 
-
 struct AppView_Previews: PreviewProvider {
-  static let store = Store(initialState: AppReducer.State()) {
-    AppReducer()
-  }
+  static let store = Store(
+    initialState: AppReducer.State(),
+    reducer: AppReducer.init
+  )
   static var previews: some View {
     AppView(store: Self.store)
       .previewInterfaceOrientation(.landscapeLeft)

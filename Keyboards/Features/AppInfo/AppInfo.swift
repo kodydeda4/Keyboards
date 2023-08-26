@@ -3,44 +3,23 @@ import ComposableArchitecture
 
 struct AppInfo: Reducer {
   struct State: Equatable {
-    @PresentationState var destination: Destination.State?
+    //...
   }
   
-  enum Action: BindableAction, Equatable {
+  enum Action: Equatable {
     case cancelButtonTapped
-    case binding(BindingAction<State>)
-    case destination(PresentationAction<Destination.Action>)
   }
   
   @Dependency(\.dismiss) var dismiss
   
   var body: some ReducerOf<Self> {
-    BindingReducer()
     Reduce { state, action in
       switch action {
         
       case .cancelButtonTapped:
         return .run { _ in await self.dismiss() }
         
-      case .binding, .destination:
-        return .none
-        
       }
-    }
-    .ifLet(\.$destination, action: /Action.destination) {
-      Destination()
-    }
-  }
-  
-  struct Destination: Reducer {
-    enum State: Equatable {
-      //...
-    }
-    enum Action: Equatable {
-      //...
-    }
-    var body: some ReducerOf<Self> {
-      EmptyReducer()
     }
   }
 }
