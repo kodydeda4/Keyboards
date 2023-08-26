@@ -33,7 +33,7 @@ struct KeyboardList: Reducer {
         return .none
         
       case let .setSelection(value):
-        state.details = value.flatMap({ state.keyboards[id: $0] }).flatMap({ .init(keyboard: $0) })
+        state.details = value.flatMap({ state.keyboards[id: $0] }).flatMap(KeyboardDetails.State.init(keyboard:))
         return .none
         
       case .details:
@@ -66,7 +66,7 @@ struct KeyboardsListView: View {
           Section("Favorites") {
             ForEach(viewStore.favorites) { keyboard in
               NavigationLink(value: keyboard) {
-                keyboardView(keyboard: keyboard)
+                Text(keyboard.name)
               }
               .tag(keyboard.id)
             }
@@ -76,7 +76,7 @@ struct KeyboardsListView: View {
           Section("Keyboards") {
             ForEach(viewStore.nonFavorites) { keyboard in
               NavigationLink(value: keyboard.id) {
-                keyboardView(keyboard: keyboard)
+                Text(keyboard.name)
               }
             }
           }
@@ -86,10 +86,6 @@ struct KeyboardsListView: View {
       .task { await viewStore.send(.task).finish() }
       .animation(.default, value: viewStore.keyboards)
     }
-  }
-  
-  private func keyboardView(keyboard: Database.Keyboard) -> some View {
-    Text("\(keyboard.name )")
   }
 }
 
