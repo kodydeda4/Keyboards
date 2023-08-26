@@ -4,4 +4,6 @@
 
 ## About
 
-This demo shows how TCA can be used to power NavigationSplitView layouts.
+This demo illustrates how [ComposableArchitecture](https://github.com/pointfreeco/swift-composable-architecture) can be used to power [NavigationSplitView](https://developer.apple.com/documentation/swiftui/navigationsplitview) layouts.
+
+
