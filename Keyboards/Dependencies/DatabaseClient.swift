@@ -109,7 +109,7 @@ extension DatabaseClient {
       // Dell
       Self(
         id: .init(),
-        manufacturerID: DatabaseClient.Manufacturer.ibm.id,
+        manufacturerID: DatabaseClient.Manufacturer.dell.id,
         name: "Dell AT101",
         description: "The Dell AT101 series was introduced as an Alps Bigfoot keyboard, with Alps SKCM Salmon switches and thick dye-sublimated keycaps with dark blue legends. Around 1992, production transferred to Silitek. With this came thin keycaps and a move to Alps SKCM Black switches. The keycap printing method is not confirmed. Evidence indicates that salmon Alps was still made and sold at this point in time, so the change of switch is not understood. Alps Bigfoot keyboards were also still being made; it remains a mystery how and why production of an extant Alps design was moved to Silitek, and whether this was done with or without Alps's participation and agreement. Silitek also introduced a rubber dome version of the keyboard.The Windows key versions introduced laser-etched legends. These were produced until at least 2001.",
         imageURL: URL(string: "https://deskthority.net/wiki/images/thumb/3/33/Dell_AT102W_UK_2000.jpg/500px-Dell_AT102W_UK_2000.jpg")!
