@@ -115,8 +115,9 @@
 		337C36AB2A9815E600920DE5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				337C36AF2A98167000920DE5 /* _AppReducer */,
-				337C36B02A98167600920DE5 /* Keyboards */,
+				337C36722A98057400920DE5 /* AppReducer.swift */,
+				337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */,
+				337C36A02A980C7600920DE5 /* KeyboardList.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -147,23 +148,6 @@
 				33DCF08F2A98252800D34440 /* Database+live.swift */,
 			);
 			path = Database;
-			sourceTree = "<group>";
-		};
-		337C36AF2A98167000920DE5 /* _AppReducer */ = {
-			isa = PBXGroup;
-			children = (
-				337C36722A98057400920DE5 /* AppReducer.swift */,
-			);
-			path = _AppReducer;
-			sourceTree = "<group>";
-		};
-		337C36B02A98167600920DE5 /* Keyboards */ = {
-			isa = PBXGroup;
-			children = (
-				337C36A72A980FEF00920DE5 /* KeyboardDetails.swift */,
-				337C36A02A980C7600920DE5 /* KeyboardList.swift */,
-			);
-			path = Keyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -14,30 +14,30 @@ struct KeyboardDetails: Reducer {
   
   @Dependency(\.database) var database
   
-  var body: some ReducerOf<Self> {
-    Reduce { state, action in
-      switch action {
+  func reduce(into state: inout State, action: Action) -> Effect<Action> {
+    switch action {
       
-      case .toggleIsFavorite:
-        var copy = state.keyboard
-        copy.isFavorite.toggle()
-        return .send(.updateDatabase(copy))
-        
-      case let .updateDatabase(value):
-        return .run { send in
-          await send(.updateDatabaseResponse(TaskResult {
-            try await database.updateKeyboard(value)
-            return value
-          }))
-        }
-        
-      case let .updateDatabaseResponse(.success(value)):
-        state.keyboard = value
-        return .none
-        
-      case .updateDatabaseResponse(.failure):
-        return .none
+    case .toggleIsFavorite:
+      return .send(.updateDatabase({
+        var rv = state.keyboard
+        rv.isFavorite.toggle()
+        return rv
+      }()))
+      
+    case let .updateDatabase(value):
+      return .run { send in
+        await send(.updateDatabaseResponse(TaskResult {
+          try await database.updateKeyboard(value)
+          return value
+        }))
       }
+      
+    case let .updateDatabaseResponse(.success(value)):
+      state.keyboard = value
+      return .none
+      
+    case .updateDatabaseResponse(.failure):
+      return .none
     }
   }
 }
@@ -76,9 +76,7 @@ struct KeyboardDetailsView: View {
       .navigationTitle(viewStore.state.name)
       .listStyle(.plain)
       .toolbar {
-        Button {
-          viewStore.send(.toggleIsFavorite)
-        } label: {
+        Button(action: { viewStore.send(.toggleIsFavorite) }) {
           Image(systemName: !viewStore.isFavorite ? "heart" : "heart.fill")
             .foregroundColor(.pink)
         }

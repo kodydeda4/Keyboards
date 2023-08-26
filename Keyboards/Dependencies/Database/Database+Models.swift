@@ -19,6 +19,8 @@ extension Database {
   }
 }
 
+// MARK: - Extensions
+
 extension Database.Manufacturer {
   static let apple = Self(id: .init(), name: "Apple")
   static let ibm = Self(id: .init(), name: "IBM")
@@ -28,7 +30,7 @@ extension Database.Manufacturer {
 
 extension Database.Keyboard {
   static let defaults: [Self] = [
-    // MARK: - Apple
+    // Apple
     Self(
       id: .init(),
       manufacturerID: Database.Manufacturer.apple.id,
@@ -50,7 +52,7 @@ extension Database.Keyboard {
       description: "Introduced and included with the original Macintosh in 1984, it debuted with neither arrow keys to control the cursor nor an integrated numeric keypad. It used a telephone cord-style RJ-11 connector to the case (also used with the Amstrad PCW series of computers). The keyboard pinouts are \"crossed\" so it isn't possible to use a standard telephone cord as a replacement; doing so will result in damage to the keyboard or the computer. The keyboard also introduced a unique command key similar to the \"open\" Apple Key on the Lisa.",
       imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Apple_Macintosh_Plus_Keyboard.jpg/440px-Apple_Macintosh_Plus_Keyboard.jpg")!
     ),
-    // MARK: - IBM
+    // IBM
     Self(
       id: .init(),
       manufacturerID: Database.Manufacturer.ibm.id,

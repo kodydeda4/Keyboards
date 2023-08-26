@@ -65,9 +65,9 @@ struct AppView: View {
   private var content: some View {
     WithViewStore(store, observe: \.destinationTag) { viewStore in
       switch viewStore.state {
-      case .apple: KeyboardsListView(store: store.scope(state: \.apple, action: AppReducer.Action.apple))
-      case .ibm: KeyboardsListView(store: store.scope(state: \.ibm, action: AppReducer.Action.ibm))
-      case .dell: KeyboardsListView(store: store.scope(state: \.dell, action: AppReducer.Action.dell))
+      case .apple: KeyboardsListView(store: store.scope(state: \.apple, action: { .apple($0) }))
+      case .ibm: KeyboardsListView(store: store.scope(state: \.ibm, action: { .ibm($0) }))
+      case .dell: KeyboardsListView(store: store.scope(state: \.dell, action: { .dell($0) }))
       case .none: EmptyView()
       }
     }
@@ -76,18 +76,24 @@ struct AppView: View {
   private var detail: some View {
     WithViewStore(store, observe: \.destinationTag) { viewStore in
       switch viewStore.state {
-      case .apple: KeyboardsListDetailView(store: store.scope(state: \.apple, action: AppReducer.Action.apple))
-      case .ibm: KeyboardsListDetailView(store: store.scope(state: \.ibm, action: AppReducer.Action.ibm))
-      case .dell: KeyboardsListDetailView(store: store.scope(state: \.dell, action: AppReducer.Action.dell))
+      case .apple: KeyboardsListDetailView(store: store.scope(state: \.apple, action: { .apple($0) }))
+      case .ibm: KeyboardsListDetailView(store: store.scope(state: \.ibm, action: { .ibm($0) }))
+      case .dell: KeyboardsListDetailView(store: store.scope(state: \.dell, action: { .dell($0) }))
       case .none: EmptyView()
       }
     }
   }
 }
 
+// MARK: - SwiftUI Previews
+
 struct AppView_Previews: PreviewProvider {
+  static let store = Store(
+    initialState: AppReducer.State(),
+    reducer: AppReducer.init
+  )
   static var previews: some View {
-    AppView(store: Store(initialState: AppReducer.State(), reducer: AppReducer.init))
+    AppView(store: Self.store)
       .previewInterfaceOrientation(.landscapeLeft)
   }
 }
