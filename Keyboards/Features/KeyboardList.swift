@@ -5,22 +5,19 @@ struct KeyboardList: Reducer {
   struct State: Equatable {
     let manufacturer: Database.Manufacturer
     var keyboards = IdentifiedArrayOf<Database.Keyboard>()
-    @BindingState var selection = Set<Database.Keyboard.ID>()
     @PresentationState var details: KeyboardDetails.State?
   }
   
-  enum Action: BindableAction, Equatable {
+  enum Action: Equatable {
     case task
     case setKeyboards([Database.Keyboard])
-    case setSelection(Set<Database.Keyboard.ID>)
-    case binding(BindingAction<State>)
+    case setSelection(Database.Keyboard.ID?)
     case details(PresentationAction<KeyboardDetails.Action>)
   }
   
   @Dependency(\.database) var database
   
   var body: some ReducerOf<Self> {
-    BindingReducer()
     Reduce { state, action in
       switch action {
         
@@ -31,30 +28,21 @@ struct KeyboardList: Reducer {
           }
         }
         
-      case let .setSelection(value):
-        state.selection = value
-        if let selection = value.first.flatMap({ state.keyboards[id: $0] }) {
-          state.details = .init(keyboard: selection)
-          state.selection = Set([selection.id])
-        } else {
-          state.details = nil
-          state.selection = Set()
-        }
-        return .none
-        
       case let .setKeyboards(value):
         state.keyboards = .init(uniqueElements: value)
         return .none
+        
+      case let .setSelection(value):
+        state.details = value.flatMap({ state.keyboards[id: $0] }).flatMap({ .init(keyboard: $0) })
+        return .none
+        
         
       default:
         return .none
         
       }
     }
-    .ifLet(\.$details, action: /Action.details) {
-      KeyboardDetails()
-    }
-    ._printChanges()
+    .ifLet(\.$details, action: /Action.details, destination: KeyboardDetails.init)
   }
 }
 
@@ -74,10 +62,7 @@ struct KeyboardsListView: View {
   
   var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-      List(selection: viewStore.binding(
-        get: { $0.selection },
-        send: { .setSelection($0) }
-      )) {
+      List(selection: viewStore.binding(get: { $0.details?.keyboard.id }, send: { .setSelection($0) } )) {
         if !viewStore.favorites.isEmpty {
           Section("Favorites") {
             ForEach(viewStore.favorites) { keyboard in
@@ -90,7 +75,7 @@ struct KeyboardsListView: View {
         }
         if !viewStore.nonFavorites.isEmpty {
           Section("Keyboards") {
-            ForEach(viewStore.keyboards.filter({ !$0.isFavorite })) { keyboard in
+            ForEach(viewStore.nonFavorites) { keyboard in
               NavigationLink(value: keyboard.id) {
                 keyboardView(keyboard: keyboard)
               }
@@ -101,11 +86,6 @@ struct KeyboardsListView: View {
       .navigationTitle(viewStore.manufacturer.name)
       .task { await viewStore.send(.task).finish() }
       .animation(.default, value: viewStore.keyboards)
-      .toolbar {
-        Button("Edit") {
-          
-        }
-      }
     }
   }
   
