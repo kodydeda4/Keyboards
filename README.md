@@ -4,4 +4,4 @@
 
 ## About
 
-Check out my [TCA-NavigationSplitView](https://github.com/kodydeda4/TCA-NavigationSplitView) repository for an in-depth explanation about how to implement NavigationSplitView layouts using TCA.
+Check out my [TCA-NavigationSplitView](https://github.com/kodydeda4/TCA-NavigationSplitView) repository for an in-depth explanation on how to implement NavigationSplitView layouts using TCA.
